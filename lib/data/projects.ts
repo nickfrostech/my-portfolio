@@ -4,7 +4,7 @@ import { Project } from "@/types";
 
 // --- PROJECTS DATA (DEVELOPER VIEW) ---
 // Ordered newest-first by dateVal (YYYYMM). `id` is unique and used only as a React key.
-// Status values: "Ongoing" | "Completed" | "Abandoned".
+// Status values: "Ongoing" | "Completed" | "Archived".
 export const projects: Project[] = [
 	{
 		id: 1,
@@ -90,7 +90,7 @@ export const projects: Project[] = [
 			"A lightweight, interactive JavaScript dictionary web app built with HTML, CSS, and vanilla JS. Search for word definitions instantly with a clean, responsive interface and seamless dark mode toggle for enhanced usability. Perfect for developers, learners, and anyone building online dictionary tools.",
 		image: "https://dummyimage.com/1600x900/000000/fff.png&text=Dictionary",
 		link: "https://nickfrostech.github.io/Dictionary/",
-		status: "Abandoned",
+		status: "Completed",
 		mode: "dev",
 		tech: ["JavaScript", "CSS"],
 		dateVal: 202404,
@@ -103,7 +103,7 @@ export const projects: Project[] = [
 			"JSPlayz is an open-source growing collection of fun, beginner-friendly JavaScript projects and micro-tutorials built to sharpen beginners skills, one playful line at a time.",
 		image: "https://dummyimage.com/1600x900/000000/fff.png&text=JSPlayz",
 		link: "https://nickfrostech.github.io/JSPlayz/",
-		status: "Abandoned",
+		status: "Completed",
 		mode: "dev",
 		tech: ["JavaScript"],
 		dateVal: 202403,
