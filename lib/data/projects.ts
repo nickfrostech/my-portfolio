@@ -7,6 +7,20 @@ import { Project } from "@/types";
 // Status values: "Ongoing" | "Completed" | "Archived".
 export const projects: Project[] = [
 	{
+		id: 7,
+		title: "Esvigy",
+		description:
+			"An open-source, framework-agnostic UI illustration library with customizable theming and animations. Designed to make illustrations as simple and developer-friendly to integrate as icons.",
+		image: "/esvigy_og.png",
+		link: "https://esvigy.vercel.app",
+		status: "Ongoing",
+		mode: "dev",
+		tech: ["TypeScript", "React", "Vite", "CLI"],
+		dateVal: 202610,
+		featured: true,
+		source: "https://github.com/nickfrostech/esvigy",
+	},
+	{
 		id: 1,
 		title: "Enque",
 		description:
@@ -36,7 +50,7 @@ export const projects: Project[] = [
 		id: 3,
 		title: "Signature Verification",
 		description:
-			"This repository contains tools for building and evaluating a signature verification pipeline. It includes preprocessing utilities for cleaning handwritten signature scans, dataset auditing helpers, and a FastAPI-ready application scaffold.",
+			"Tools for building and evaluating a signature verification pipeline for ML projects. Includes preprocessing utilities for cleaning handwritten signature scans, dataset auditing helpers, and a FastAPI-ready application scaffold.",
 		image: "https://dummyimage.com/1600x900/000000/fff.png&text=Signature-verification",
 		link: "https://github.com/nickfrostech/signature-verification",
 		status: "Completed",
@@ -69,7 +83,6 @@ export const projects: Project[] = [
 		mode: "dev",
 		tech: ["Next.js", "TypeScript", "Tailwind CSS"],
 		dateVal: 202505,
-		featured: true,
 	},
 	{
 		id: 6,
@@ -123,10 +136,5 @@ export const upcomingProjects = [
 		id: 2,
 		title: "Bookish",
 		description: "A free pdf library for reading",
-	},
-	{
-		id: 3,
-		title: "Memy",
-		description: "A JavaScript library of reusable illustration components",
 	},
 ];

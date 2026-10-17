@@ -97,11 +97,10 @@ const developer = {
 ## 🏆 Featured Projects
 
 | Project      | Description                                                                                | Tech Stack                          | Link                                       |
-| ------------ | ------------------------------------------------------------------------------------------ | ----------------------------------- | ------------------------------------------ |
+| **Esvigy**   | Open-source UI illustration library with two-tone theming & CSS micro-animations           | TypeScript, React, SVG, CLI         | [Live Demo →](https://esvigy.vercel.app)   |
 | **Enque**    | Digital queue management platform with offline-first support & real-time tracking          | Next.js, React, Node.js, WebSockets | [Live Demo →](https://enque.live)          |
 | **NicksPay** | Multi-tenant payment platform built for student departments & organizations                | Next.js, Node.js, PostgreSQL        | [Live Demo →](https://nickspay.com.ng)     |
 | **Ttenda**   | Location-based smart attendance system reducing attendance fraud through automated records | React, TypeScript, Node.js          | [Live Demo →](https://ttenda.vercel.app)   |
-| **UniScore** | AI screening calculator automating university admission score computations                 | React, Node.js, AI Engine           | [Live Demo →](https://uniscore.vercel.app) |
 
 ---
 

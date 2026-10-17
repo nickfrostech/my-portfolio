@@ -65,6 +65,10 @@ const nextConfig: NextConfig = {
 			},
 			{
 				protocol: "https",
+				hostname: "esvigy.vercel.app",
+			},
+			{
+				protocol: "https",
 				hostname: "uniscore.vercel.app",
 			},
 			{
