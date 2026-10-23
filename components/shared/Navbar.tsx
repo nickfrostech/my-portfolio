@@ -107,8 +107,8 @@ export function Navbar() {
 
 	return (
 		<div className='sticky top-0 z-50 w-full h-13 flex justify-center items-start pointer-events-none px-4 md:px-12'>
-			{/* DESKTOP NAV */}
-			<nav className='hidden md:flex relative items-center justify-between w-full max-w-3xl h-13 bg-foreground rounded-b-3xl pointer-events-auto px-4'>
+			{/* DESKTOP NAV WRAPPER */}
+			<div className='hidden md:flex relative items-center justify-between w-full max-w-3xl h-13 pointer-events-none'>
 				{/* Left Incurve */}
 				<div className='absolute top-0 -left-5 w-5 h-5 overflow-visible -scale-x-100 pointer-events-none'>
 					<svg
@@ -151,130 +151,132 @@ export function Navbar() {
 					</svg>
 				</div>
 
-				{/* Left Logo */}
-				<div className='flex items-center gap-3 text-background'>
-					<div className='w-8 h-8 rounded-full overflow-hidden flex items-center justify-center shrink-0'>
-						<Image
-							src='/icon.png'
-							alt='Nicholas Benson Portfolio'
-							width={32}
-							height={32}
-							className='w-full h-full object-cover'
-							priority
-						/>
-					</div>
-					<Link
-						href={getHref("/")}
-						className='font-bold text-lg hover:text-accent transition-colors'
-					>
-						Nicholas
-					</Link>
-				</div>
-
-				{/* Center Links */}
-				<div className='flex items-center gap-8'>
-					{links.map((link) => (
+				<nav className='relative flex items-center justify-between w-full h-13 bg-foreground rounded-b-3xl pointer-events-auto px-4 overflow-hidden'>
+					{/* Left Logo */}
+					<div className='flex items-center gap-3 text-background'>
+						<div className='w-8 h-8 rounded-full overflow-hidden flex items-center justify-center shrink-0'>
+							<Image
+								src='/icon.png'
+								alt='Nicholas Benson Portfolio'
+								width={32}
+								height={32}
+								className='w-full h-full object-cover'
+								priority
+							/>
+						</div>
 						<Link
-							key={link.label}
-							href={link.href}
-							className='text-base font-semibold text-muted-foreground transition-colors hover:text-accent'
+							href={getHref("/")}
+							className='font-bold text-lg hover:text-accent transition-colors'
 						>
-							{link.label}
+							Nicholas
 						</Link>
-					))}
-				</div>
+					</div>
 
-				{/* Right Actions */}
-				<div className='flex items-center gap-3 lg:gap-4'>
-					{/* Mode Selector Dropdown commented out as requested */}
-					{/* 
-					<div className='relative'>
-						<button
-							onClick={() => setModeMenuOpen(!modeMenuOpen)}
-							className='flex items-center gap-1.5 text-base font-semibold text-muted-foreground hover:text-accent transition-colors capitalize cursor-pointer'
-						>
-							{mode}{" "}
-							<motion.div animate={{ rotate: modeMenuOpen ? 180 : 0 }}>
-								<LuChevronDown className='w-4 h-4' />
-							</motion.div>
-						</button>
-						<AnimatePresence>
-							{modeMenuOpen && (
-								<motion.div
-									initial={{ clipPath: "inset(0% -25% 100% -25%)" }}
-									animate={{ clipPath: "inset(0% -25% -20% -25%)" }}
-									exit={{ clipPath: "inset(0% -25% 100% -25%)" }}
-									transition={{
-										duration: 0.4,
-										ease: [0.16, 1, 0.3, 1],
-									}}
-									className='absolute top-9.5 left-1/2 -translate-x-1/2 w-25 flex flex-col z-40 origin-top'
-								>
-									<div className='relative w-full bg-foreground rounded-b-2xl flex flex-col shadow-sm'>
-										<div className='flex flex-col pb-4 overflow-hidden rounded-b-3xl gap-3 pl-3'>
-											{modeOptions
-												.filter((option) => option.key !== mode)
-												.map((option) => (
-													<Link
-														key={option.key}
-														href={option.key === "design" ? "/design" : "/"}
-														onClick={() => {
-															setModeMenuOpen(false);
-															setIsOpen(false);
-														}}
-														className='text-sm text-muted-foreground hover:text-accent transition-colors font-semibold py-1'
-													>
-														{option.label}
-													</Link>
-												))}
-										</div>
-									</div>
+					{/* Center Links */}
+					<div className='flex items-center gap-8'>
+						{links.map((link) => (
+							<Link
+								key={link.label}
+								href={link.href}
+								className='text-base font-semibold text-muted-foreground transition-colors hover:text-accent'
+							>
+								{link.label}
+							</Link>
+						))}
+					</div>
+
+					{/* Right Actions */}
+					<div className='flex items-center gap-3 lg:gap-4'>
+						{/* Mode Selector Dropdown commented out as requested */}
+						{/* 
+						<div className='relative'>
+							<button
+								onClick={() => setModeMenuOpen(!modeMenuOpen)}
+								className='flex items-center gap-1.5 text-base font-semibold text-muted-foreground hover:text-accent transition-colors capitalize cursor-pointer'
+							>
+								{mode}{" "}
+								<motion.div animate={{ rotate: modeMenuOpen ? 180 : 0 }}>
+									<LuChevronDown className='w-4 h-4' />
 								</motion.div>
+							</button>
+							<AnimatePresence>
+								{modeMenuOpen && (
+									<motion.div
+										initial={{ clipPath: "inset(0% -25% 100% -25%)" }}
+										animate={{ clipPath: "inset(0% -25% -20% -25%)" }}
+										exit={{ clipPath: "inset(0% -25% 100% -25%)" }}
+										transition={{
+											duration: 0.4,
+											ease: [0.16, 1, 0.3, 1],
+										}}
+										className='absolute top-9.5 left-1/2 -translate-x-1/2 w-25 flex flex-col z-40 origin-top'
+									>
+										<div className='relative w-full bg-foreground rounded-b-2xl flex flex-col shadow-sm'>
+											<div className='flex flex-col pb-4 overflow-hidden rounded-b-3xl gap-3 pl-3'>
+												{modeOptions
+													.filter((option) => option.key !== mode)
+													.map((option) => (
+														<Link
+															key={option.key}
+															href={option.key === "design" ? "/design" : "/"}
+															onClick={() => {
+																setModeMenuOpen(false);
+																setIsOpen(false);
+															}}
+															className='text-sm text-muted-foreground hover:text-accent transition-colors font-semibold py-1'
+														>
+															{option.label}
+														</Link>
+													))}
+											</div>
+										</div>
+									</motion.div>
+								)}
+							</AnimatePresence>
+						</div>
+						*/}
+
+						<div className='relative'>
+							<motion.button
+								whileTap={{ scale: 0.8, rotate: 180 }}
+								whileHover={{ scale: 1.1 }}
+								transition={{
+									type: "spring",
+									stiffness: 200,
+									damping: 10,
+								}}
+								onClick={toggleTheme}
+								className='flex items-center justify-center w-8 h-8 rounded-full text-muted-foreground hover:text-accent transition-colors cursor-pointer'
+								aria-label='Toggle theme'
+							>
+								{renderThemeIcon()}
+							</motion.button>
+						</div>
+						<Link
+							href={getHref("/") + "#contact"}
+							className={cn(
+								buttonVariants({ variant: "secondary" }),
+								"rounded-3xl font-semibold bg-background hover:bg-card text-foreground",
 							)}
-						</AnimatePresence>
-					</div>
-					*/}
-
-					<div className='relative'>
-						<motion.button
-							whileTap={{ scale: 0.8, rotate: 180 }}
-							whileHover={{ scale: 1.1 }}
-							transition={{
-								type: "spring",
-								stiffness: 200,
-								damping: 10,
-							}}
-							onClick={toggleTheme}
-							className='flex items-center justify-center w-8 h-8 rounded-full text-muted-foreground hover:text-accent transition-colors cursor-pointer'
-							aria-label='Toggle theme'
 						>
-							{renderThemeIcon()}
-						</motion.button>
+							Contact
+						</Link>
 					</div>
-					<Link
-						href={getHref("/") + "#contact"}
-						className={cn(
-							buttonVariants({ variant: "secondary" }),
-							"rounded-3xl font-semibold bg-background hover:bg-card text-foreground",
-						)}
-					>
-						Contact
-					</Link>
-				</div>
 
-				{/* Integrated Desktop Bottom Loading Line */}
-				<AnimatePresence>
-					{isNavigating && (
-						<motion.div
-							initial={{ scaleX: 0 }}
-							animate={{ scaleX: [0, 0.6, 0.95] }}
-							exit={{ scaleX: 1, opacity: 0 }}
-							transition={{ duration: 0.7, ease: "easeInOut" }}
-							className='absolute bottom-0 left-0 right-0 h-[2.5px] bg-accent origin-left rounded-b-3xl pointer-events-none'
-						/>
-					)}
-				</AnimatePresence>
-			</nav>
+					{/* Integrated Desktop Bottom Loading Line */}
+					<AnimatePresence>
+						{isNavigating && (
+							<motion.div
+								initial={{ scaleX: 0 }}
+								animate={{ scaleX: [0, 0.6, 0.95] }}
+								exit={{ scaleX: 1, opacity: 0 }}
+								transition={{ duration: 0.7, ease: "easeInOut" }}
+								className='absolute bottom-0 left-0 right-0 h-[2.5px] bg-accent origin-left pointer-events-none z-10'
+							/>
+						)}
+					</AnimatePresence>
+				</nav>
+			</div>
 
 			{/* MOBILE NAV WRAPPER */}
 			<div className='flex md:hidden relative flex-col w-max min-w-[75%] sm:min-w-[50%]'>
@@ -323,7 +325,7 @@ export function Navbar() {
 					initial={false}
 					animate={{ height: isOpen ? "auto" : "3.25rem" }}
 					transition={{ duration: 0.3, ease: "easeInOut" }}
-					className='w-full bg-foreground rounded-b-2xl pointer-events-auto overflow-hidden flex flex-col shadow-sm'
+					className='relative w-full bg-foreground rounded-b-2xl pointer-events-auto overflow-hidden flex flex-col shadow-sm'
 				>
 					{/* Top Bar */}
 					<div className='relative flex items-center justify-between w-full h-13 p-2'>
@@ -442,7 +444,7 @@ export function Navbar() {
 								animate={{ scaleX: [0, 0.6, 0.95] }}
 								exit={{ scaleX: 1, opacity: 0 }}
 								transition={{ duration: 0.7, ease: "easeInOut" }}
-								className='absolute bottom-0 left-0 right-0 h-[2.5px] bg-accent origin-left pointer-events-none'
+								className='absolute bottom-0 left-0 right-0 h-[2.5px] bg-accent origin-left pointer-events-none z-10'
 							/>
 						)}
 					</AnimatePresence>

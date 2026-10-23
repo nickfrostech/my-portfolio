@@ -34,7 +34,7 @@ export interface Project {
 	title: string;
 	description: string;
 	image: string | StaticImageData;
-	link: string;
+	link?: string;
 	status: string;
 	mode: ModeType;
 	tech: string[];
