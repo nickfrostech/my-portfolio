@@ -95,6 +95,10 @@ const nextConfig: NextConfig = {
 				protocol: "https",
 				hostname: "dummyimage.com",
 			},
+			{
+				protocol: "https",
+				hostname: "nacossfuoye.vercel.app",
+			},
 		],
 	},
 };

@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 // import { ModeLink } from "@/components/shared/ModeLink";
-import { LuExternalLink as ExternalLink } from "react-icons/lu";
+import { LuExternalLink as ExternalLink, LuGithub } from "react-icons/lu";
 import type { Project } from "@/types";
 
 interface ProjectCardProps {
@@ -10,6 +10,14 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
+	const hasSource = Boolean(project.source && project.source.trim() !== "");
+	const hasLive = Boolean(
+		project.link &&
+			project.link.trim() !== "" &&
+			project.link !== "#" &&
+			project.link !== project.source,
+	);
+
 	return (
 		<article className='group flex flex-col bg-card border border-border dark:border-border/50 rounded-3xl overflow-hidden transition-all duration-500 hover:border-accent hover:shadow-lg p-3 relative h-full'>
 			{/* <ModeLink href={project.link} className='absolute inset-0 z-10'>
@@ -56,18 +64,40 @@ export function ProjectCard({ project }: ProjectCardProps) {
 					))}
 				</div>
 
-				{/* View Project Button */}
-				<div className='pt-2 mt-auto px-2 flex justify-end'>
-					<a
-						href={project.link}
-						target={project.link !== "#" ? "_blank" : "_self"}
-						rel={project.link !== "#" ? "noopener noreferrer" : undefined}
-						aria-label={`View live demo and details for ${project.title}`}
-						className='relative z-20 inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-accent transition-colors'
-					>
-						View Project <ExternalLink className='w-4 h-4' />
-					</a>
-				</div>
+				{/* Action Links: Source on left, Live Demo on right */}
+				{(hasSource || hasLive) && (
+					<div className='pt-2 mt-auto px-2 flex items-center justify-between gap-3'>
+						<div>
+							{hasSource && (
+								<a
+									href={project.source}
+									target='_blank'
+									rel='noopener noreferrer'
+									aria-label={`View source code for ${project.title}`}
+									className='relative z-20 inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-accent transition-colors'
+								>
+									<LuGithub className='w-4 h-4' />
+									<span>Source</span>
+								</a>
+							)}
+						</div>
+
+						<div>
+							{hasLive && (
+								<a
+									href={project.link}
+									target='_blank'
+									rel='noopener noreferrer'
+									aria-label={`View live demo and details for ${project.title}`}
+									className='relative z-20 inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-accent transition-colors'
+								>
+									<span>Live Demo</span>
+									<ExternalLink className='w-4 h-4' />
+								</a>
+							)}
+						</div>
+					</div>
+				)}
 			</div>
 		</article>
 	);

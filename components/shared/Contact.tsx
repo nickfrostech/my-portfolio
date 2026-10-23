@@ -40,8 +40,8 @@ export function Contact() {
 			form.elements.namedItem("attachment") as HTMLInputElement
 		).files?.[0];
 
-		// File Size Validation (10MB limit)
-		if (attachment && attachment.size > 10 * 1024 * 1024) {
+		// File Size Validation (50MB limit)
+		if (attachment && attachment.size > 50 * 1024 * 1024) {
 			setErrorMessage("File size exceeds 10MB limit. Please upload a smaller file.");
 			setStatus("error");
 			return;
@@ -259,7 +259,7 @@ export function Contact() {
 										htmlFor='attachment'
 										className='text-sm font-medium text-foreground'
 									>
-										Attachment (Optional, Max 10MB)
+										Attachment (Optional, Max 50MB)
 									</label>
 									<input
 										id='attachment'

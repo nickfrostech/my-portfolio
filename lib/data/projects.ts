@@ -11,7 +11,7 @@ export const projects: Project[] = [
 		title: "Esvigy",
 		description:
 			"An open-source, framework-agnostic UI illustration library with customizable theming and animations. Designed to make illustrations as simple and developer-friendly to integrate as icons.",
-		image: "/esvigy_og.png",
+		image: "https://esvigy.vercel.app/og.png",
 		link: "https://esvigy.vercel.app",
 		status: "Ongoing",
 		mode: "dev",
@@ -42,7 +42,7 @@ export const projects: Project[] = [
 		link: "https://nickspay.com.ng",
 		status: "Ongoing",
 		mode: "dev",
-		tech: ["Next.js", "TypeScript", "PostgreSQL", "Stripe"],
+		tech: ["Next.js", "TypeScript", "PostgreSQL", "Paystack"],
 		dateVal: 202608,
 		featured: true,
 	},
@@ -52,7 +52,6 @@ export const projects: Project[] = [
 		description:
 			"Tools for building and evaluating a signature verification pipeline for ML projects. Includes preprocessing utilities for cleaning handwritten signature scans, dataset auditing helpers, and a FastAPI-ready application scaffold.",
 		image: "https://dummyimage.com/1600x900/000000/fff.png&text=Signature-verification",
-		link: "https://github.com/nickfrostech/signature-verification",
 		status: "Completed",
 		mode: "dev",
 		tech: ["Python", "ML", "FastAPI", "JavaScript"],
@@ -68,7 +67,7 @@ export const projects: Project[] = [
 		link: "https://yoruba-lexicon.vercel.app",
 		status: "Completed",
 		mode: "dev",
-		tech: ["React.js", "JavaScript", "Supabase", "Vite"],
+		tech: ["React", "JavaScript", "Supabase", "Vite"],
 		dateVal: 202603,
 		source: "https://github.com/nickfrostech/Yoruba-Lexicon",
 	},
@@ -81,7 +80,7 @@ export const projects: Project[] = [
 		link: "https://uniscore.vercel.app",
 		status: "Ongoing",
 		mode: "dev",
-		tech: ["Next.js", "TypeScript", "Tailwind CSS"],
+		tech: ["Next.js", "TypeScript", "Tailwind"],
 		dateVal: 202505,
 	},
 	{
@@ -122,6 +121,19 @@ export const projects: Project[] = [
 		dateVal: 202403,
 		source: "https://github.com/nickfrostech/JSPlayz",
 	},
+	{
+		id: 10,
+		title: "NACOSS FUOYE",
+		description:
+			"The official website for the National Association of Computer Science Students, Federal University of Oye-Ekiti. A platform for members to connect, share knowledge, and stay updated on events and activities.",
+		image: "https://nacossfuoye.vercel.app/og.png",
+		link: "https://nacossfuoye.vercel.app/",
+		status: "Ongoing",
+		mode: "dev",
+		tech: ["Next.js", "JavaScript"],
+		dateVal: 202610,
+		source: "https://github.com/nickfrostech/nacossfuoye",
+	},
 ];
 
 // ---- UPCOMING PROJECTS ---
@@ -134,7 +146,12 @@ export const upcomingProjects = [
 	},
 	{
 		id: 2,
-		title: "Bookish",
-		description: "A free pdf library for reading",
+		title: "NickCN",
+		description: "A shadcn for different component and UI types",
+	},
+	{
+		id: 3,
+		title: "SimpleDB",
+		description: "An experimental database that uses csv as a data source",
 	},
 ];
